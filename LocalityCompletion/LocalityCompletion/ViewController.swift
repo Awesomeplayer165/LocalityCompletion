@@ -29,6 +29,9 @@ class ViewController: UIViewController {
 
 extension ViewController:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard !searchBar.text!.isEmpty else {
+            return 1
+        }
         return searchResults.count
     }
     
@@ -37,6 +40,13 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard !searchBar.text!.isEmpty else {
+            print("empty")
+            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+            cell.textLabel?.text = "Start typing for Local Search Results..."
+            return cell
+        }
+        
         let searchResult = searchResults[indexPath.row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.textLabel?.text = searchResult.title
@@ -45,6 +55,10 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard !searchBar.text!.isEmpty else {
+            return
+        }
+        
         let completion = searchResults[indexPath.row]
         let searchRequest = MKLocalSearch.Request(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
@@ -91,5 +105,10 @@ extension ViewController: UISearchBarDelegate {
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
         mapView.isHidden = false
         return true
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+        mapView.isHidden = false
+        tableView.reloadData()
     }
 }

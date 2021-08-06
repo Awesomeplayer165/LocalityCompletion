@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ksr-Ho-C2X">
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ksr-Ho-C2X">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Jhw-ZG-0kV"/>
@@ -42,7 +42,7 @@
                             <constraint firstItem="ksr-Ho-C2X" firstAttribute="trailing" secondItem="WD2-dF-Gt2" secondAttribute="trailing" id="LvV-zh-5Ys"/>
                             <constraint firstItem="WD2-dF-Gt2" firstAttribute="top" secondItem="ksr-Ho-C2X" secondAttribute="bottom" id="YHw-rv-XDt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WD2-dF-Gt2" secondAttribute="bottom" id="eCx-EV-i2Y"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wlK-1p-FSd" secondAttribute="bottom" id="sW9-qp-RIc"/>
+                            <constraint firstAttribute="bottom" secondItem="wlK-1p-FSd" secondAttribute="bottom" id="sW9-qp-RIc"/>
                             <constraint firstItem="ksr-Ho-C2X" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xcu-GA-MEB"/>
                             <constraint firstItem="ksr-Ho-C2X" firstAttribute="leading" secondItem="wlK-1p-FSd" secondAttribute="leading" id="zCT-Cx-F4y"/>
                         </constraints>
